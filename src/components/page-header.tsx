@@ -1,4 +1,7 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
+import { Check, Copy } from "lucide-react";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
 
 export function PageHeader({ title, subtitle, action }: { title: string; subtitle: string; action?: ReactNode }) {
   return (
@@ -13,15 +16,6 @@ export function PageHeader({ title, subtitle, action }: { title: string; subtitl
 }
 
 export function CopyButton({ text }: { text: string }) {
-  return <CopyButtonInner text={text} />;
-}
-
-import { useState } from "react";
-import { Check, Copy } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
-
-function CopyButtonInner({ text }: { text: string }) {
   const [done, setDone] = useState(false);
   return (
     <Button
@@ -42,4 +36,13 @@ function CopyButtonInner({ text }: { text: string }) {
       {done ? <Check /> : <Copy />} {done ? "Copied" : "Copy"}
     </Button>
   );
+}
+
+export async function readError(res: Response) {
+  try {
+    const j = await res.json();
+    return (j?.error as string) || `Request failed (${res.status})`;
+  } catch {
+    return `Request failed (${res.status})`;
+  }
 }
