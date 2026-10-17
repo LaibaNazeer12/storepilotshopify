@@ -62,3 +62,38 @@ export function jsonError(status: number, message: string) {
     headers: { "Content-Type": "application/json" },
   });
 }
+
+/** Streams plain text; waits for the first chunk so upstream errors return a proper status. */
+export async function textStreamWithErrors(fullStream: AsyncIterable<{ type: string; text?: string; error?: unknown }>) {
+  const it = fullStream[Symbol.asyncIterator]();
+  const enc = new TextEncoder();
+  let first: string | null = null;
+  while (first === null) {
+    const { value, done } = await it.next();
+    if (done) return jsonError(502, "The AI returned an empty response. Please try again.");
+    if (value.type === "error") {
+      const { status, message } = friendlyAiError(value.error);
+      return jsonError(status, message);
+    }
+    if (value.type === "text-delta" && value.text) first = value.text;
+  }
+  const body = new ReadableStream({
+    async start(controller) {
+      controller.enqueue(enc.encode(first!));
+      try {
+        while (true) {
+          const { value, done } = await it.next();
+          if (done) break;
+          if (value.type === "text-delta" && value.text) controller.enqueue(enc.encode(value.text));
+          if (value.type === "error") {
+            controller.enqueue(enc.encode("\n\n[Generation interrupted: " + friendlyAiError(value.error).message + "]"));
+            break;
+          }
+        }
+      } finally {
+        controller.close();
+      }
+    },
+  });
+  return new Response(body, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
+}

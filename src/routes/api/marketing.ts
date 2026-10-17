@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { streamText } from "ai";
 import { z } from "zod";
-import { createGatewayModel, friendlyAiError, jsonError, reasoningOptions } from "@/lib/ai.server";
+import { createGatewayModel, friendlyAiError, jsonError, reasoningOptions, textStreamWithErrors } from "@/lib/ai.server";
 
 const schema = z.object({
   productName: z.string().trim().min(2).max(120),
@@ -34,7 +34,7 @@ export const Route = createFileRoute("/api/marketing")({
             abortSignal: request.signal,
             providerOptions: reasoningOptions,
           });
-          return result.toTextStreamResponse();
+          return await textStreamWithErrors(result.fullStream as never);
         } catch (e) {
           const { status, message } = friendlyAiError(e);
           return jsonError(status, message);
