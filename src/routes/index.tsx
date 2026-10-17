@@ -99,7 +99,7 @@ function Dashboard() {
             <Lightbulb className="size-5" />
             <h2 className="text-base font-semibold">AI Recommendations</h2>
           </div>
-          <span className="text-xs opacity-80">Based on demo data</span>
+          <span className="text-xs opacity-80">Sample recommendations for the demo data (pre-written, not live AI)</span>
         </div>
         <div className="grid gap-4 p-5 md:grid-cols-3">
           {demoRecommendations.map((r) => (
