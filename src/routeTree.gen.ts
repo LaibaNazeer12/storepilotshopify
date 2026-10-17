@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdvisorRouteImport } from './routes/advisor'
+import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as MarketingRouteImport } from './routes/marketing'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as ApiInsightsRouteImport } from './routes/api/insights'
+import { Route as ApiMarketingRouteImport } from './routes/api/marketing'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdvisorRoute = AdvisorRouteImport.update({
+  id: '/advisor',
+  path: '/advisor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingRoute = MarketingRouteImport.update({
+  id: '/marketing',
+  path: '/marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiInsightsRoute = ApiInsightsRouteImport.update({
+  id: '/api/insights',
+  path: '/api/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiMarketingRoute = ApiMarketingRouteImport.update({
+  id: '/api/marketing',
+  path: '/api/marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/advisor': typeof AdvisorRoute
+  '/insights': typeof InsightsRoute
+  '/marketing': typeof MarketingRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/insights': typeof ApiInsightsRoute
+  '/api/marketing': typeof ApiMarketingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/advisor': typeof AdvisorRoute
+  '/insights': typeof InsightsRoute
+  '/marketing': typeof MarketingRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/insights': typeof ApiInsightsRoute
+  '/api/marketing': typeof ApiMarketingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/advisor': typeof AdvisorRoute
+  '/insights': typeof InsightsRoute
+  '/marketing': typeof MarketingRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/insights': typeof ApiInsightsRoute
+  '/api/marketing': typeof ApiMarketingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/advisor'
+    | '/insights'
+    | '/marketing'
+    | '/api/chat'
+    | '/api/insights'
+    | '/api/marketing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/advisor'
+    | '/insights'
+    | '/marketing'
+    | '/api/chat'
+    | '/api/insights'
+    | '/api/marketing'
+  id:
+    | '__root__'
+    | '/'
+    | '/advisor'
+    | '/insights'
+    | '/marketing'
+    | '/api/chat'
+    | '/api/insights'
+    | '/api/marketing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdvisorRoute: typeof AdvisorRoute
+  InsightsRoute: typeof InsightsRoute
+  MarketingRoute: typeof MarketingRoute
+  ApiChatRoute: typeof ApiChatRoute
+  ApiInsightsRoute: typeof ApiInsightsRoute
+  ApiMarketingRoute: typeof ApiMarketingRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/advisor': {
+      id: '/advisor'
+      path: '/advisor'
+      fullPath: '/advisor'
+      preLoaderRoute: typeof AdvisorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing': {
+      id: '/marketing'
+      path: '/marketing'
+      fullPath: '/marketing'
+      preLoaderRoute: typeof MarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/insights': {
+      id: '/api/insights'
+      path: '/api/insights'
+      fullPath: '/api/insights'
+      preLoaderRoute: typeof ApiInsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/marketing': {
+      id: '/api/marketing'
+      path: '/api/marketing'
+      fullPath: '/api/marketing'
+      preLoaderRoute: typeof ApiMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdvisorRoute: AdvisorRoute,
+  InsightsRoute: InsightsRoute,
+  MarketingRoute: MarketingRoute,
+  ApiChatRoute: ApiChatRoute,
+  ApiInsightsRoute: ApiInsightsRoute,
+  ApiMarketingRoute: ApiMarketingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
