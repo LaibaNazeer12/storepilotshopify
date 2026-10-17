@@ -10,11 +10,23 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as ApiInsightsRouteImport } from './routes/api/insights'
 import { Route as ApiMarketingRouteImport } from './routes/api/marketing'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiInsightsRoute = ApiInsightsRouteImport.update({
+  id: '/api/insights',
+  path: '/api/insights',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiMarketingRoute = ApiMarketingRouteImport.update({
@@ -25,27 +37,35 @@ const ApiMarketingRoute = ApiMarketingRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/insights': typeof ApiInsightsRoute
   '/api/marketing': typeof ApiMarketingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/insights': typeof ApiInsightsRoute
   '/api/marketing': typeof ApiMarketingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/chat': typeof ApiChatRoute
+  '/api/insights': typeof ApiInsightsRoute
   '/api/marketing': typeof ApiMarketingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/marketing'
+  fullPaths: '/' | '/api/chat' | '/api/insights' | '/api/marketing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/marketing'
-  id: '__root__' | '/' | '/api/marketing'
+  to: '/' | '/api/chat' | '/api/insights' | '/api/marketing'
+  id: '__root__' | '/' | '/api/chat' | '/api/insights' | '/api/marketing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiChatRoute: typeof ApiChatRoute
+  ApiInsightsRoute: typeof ApiInsightsRoute
   ApiMarketingRoute: typeof ApiMarketingRoute
 }
 
@@ -56,6 +76,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/insights': {
+      id: '/api/insights'
+      path: '/api/insights'
+      fullPath: '/api/insights'
+      preLoaderRoute: typeof ApiInsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/marketing': {
@@ -70,6 +104,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiChatRoute: ApiChatRoute,
+  ApiInsightsRoute: ApiInsightsRoute,
   ApiMarketingRoute: ApiMarketingRoute,
 }
 export const routeTree = rootRouteImport
