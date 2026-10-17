@@ -5,7 +5,7 @@ const RUN_ID_HEADER = "X-Lovable-AIG-Run-ID";
 export const AI_MODEL = "openai/gpt-6-astra";
 
 export function createGatewayModel(request: Request) {
-  const apiKey = process.env.LOVABLE_API_KEY;
+  const apiKey = process.env['LOVABLE_API_KEY'];
   if (!apiKey) throw new ConfigError();
   let runId = request.headers.get(RUN_ID_HEADER)?.trim() || undefined;
   const provider = createOpenAI({
