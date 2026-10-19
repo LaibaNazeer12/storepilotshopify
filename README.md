@@ -150,35 +150,7 @@ The AI workflows send appropriate user-provided inputs to the configured AI serv
 
 Never include actual API keys or secret values in this README.
 
-## 7. Product Screenshots
-
-Add screenshots of the following application pages to a folder named `screenshots` in the repository.
-
-Suggested structure:
-
-```text
-screenshots/
-├── dashboard.png
-├── marketing-studio.png
-├── customer-insights.png
-└── store-advisor.png
-```
-
-Insert the screenshots below after adding the actual image files:
-
-### Store Dashboard
-![StorePilot AI Dashboard](screenshots/dashboard.png)
-
-### AI Marketing Studio
-![AI Marketing Studio](screenshots/marketing-studio.png)
-
-### Customer Insights
-![Customer Insights](screenshots/customer-insights.png)
-
-### AI Store Advisor
-![AI Store Advisor](screenshots/store-advisor.png)
-
-These image paths will work only after the corresponding screenshot files have been added to the repository with matching filenames.
+## 7. Product Screenshots: https://drive.google.com/drive/folders/1_btCTUG6QsknYIXBs396SeA-Vf4157tn?usp=sharing
 
 ## 8. Current Limitations and Future Improvements
 
@@ -194,9 +166,7 @@ These image paths will work only after the corresponding screenshot files have b
 - Historical customer sentiment tracking.
 - Additional business insights based on real store performance.
 
-## 9. Project Links: https://drive.google.com/drive/folders/1_btCTUG6QsknYIXBs396SeA-Vf4157tn?usp=sharing
-
-## Conclusion
+## 9.Conclusion
 
 StorePilot AI demonstrates how generative AI can support ecommerce marketing, customer feedback analysis, and business decision-making in a single application. It is a functional prototype designed to make AI assistance more accessible to small ecommerce businesses, with clearly identified sample data and transparent limitations.
 
