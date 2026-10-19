@@ -1,66 +1,203 @@
-# StorePilot AI
+# StorePilot AI 🚀
+### Your AI-powered copilot for smarter ecommerce decisions
 
-**Your AI-powered copilot for smarter ecommerce decisions, marketing, and customer insights.**
+StorePilot AI is an AI-powered web application designed to help Shopify store owners and small ecommerce businesses with marketing content creation, customer review analysis, and business decision-making.
 
-## Overview
+## 1. Problem Statement and Solution
 
-StorePilot AI is an AI-powered web application designed to help ecommerce store owners generate marketing content, understand customer feedback, and receive practical business advice from one workspace.
+### Problem Statement
 
-## Problem Statement
+Small ecommerce businesses often have limited time and resources to manage marketing, understand customer feedback, and make informed business decisions. Creating effective promotional content can be challenging, while manually analyzing customer reviews and interpreting store performance data can take considerable effort.
 
-Small ecommerce businesses often lack the time and resources to analyze customer reviews, create marketing campaigns, and interpret store performance data. StorePilot AI aims to make these tasks more accessible through AI-assisted workflows.
+### Proposed Solution
 
-## Solution and Features
+StorePilot AI brings several AI-assisted ecommerce workflows together in one user-friendly application. It helps store owners generate marketing content, identify patterns in customer reviews, and receive actionable business advice.
 
-- **Store Dashboard:** Displays example ecommerce metrics using clearly labeled sample data.
-- **AI Marketing Studio:** Generates marketing content with an AI model.
-- **Customer Insights:** Analyzes user-provided reviews to identify themes and sentiment.
-- **AI Store Advisor:** Provides practical, prioritized suggestions based on supplied information and available demo data.
+The current prototype includes a dashboard with clearly labeled sample data. Live Shopify integration is not yet implemented.
 
-## Technology Stack
+## 2. Features
 
-- **Application builder:** Lovable
-- **Frontend framework:** Confirm the framework used by the generated project.
-- **Programming language:** Confirm the languages used in the repository.
-- **Styling and UI:** Confirm the libraries present in the project.
-- **AI integration:** The AI provider and model configured for the application.
-- **Backend/server functions:** Document the actual services used by the project.
+### 📊 Store Dashboard
+- Displays example revenue and order metrics.
+- Shows average order value and returning-customer metrics.
+- Presents sample sales trends.
+- Clearly labels sample data and indicates that Shopify is not connected.
 
-## AI Methodology
+### ✍️ AI Marketing Studio
+- Generates marketing content using an AI model.
+- Helps users create promotional copy for ecommerce products and campaigns.
+- Provides generated content that users can review and copy.
 
-StorePilot AI uses AI model calls to generate marketing content, analyze customer reviews, and answer ecommerce-related questions. The Customer Insights workflow checks extracted source quotes against the supplied reviews. The Store Advisor uses available context and can ask follow-up questions when information is insufficient.
+### 💬 Customer Insights
+- Analyzes customer reviews supplied by the user.
+- Identifies recurring themes, customer sentiment, and potential improvement areas.
+- Checks extracted source quotes against the original review text.
 
-The dashboard currently uses sample data and is not connected to a live Shopify store.
+### 🧠 AI Store Advisor
+- Answers ecommerce-related questions using supplied information and available demo context.
+- Provides prioritized suggestions and practical next steps.
+- Asks follow-up questions when additional information is needed.
 
-## AI Models and API Usage
+## 3. Technology Stack
 
-Document the actual AI provider, model name, and purpose for each workflow based on the project's configuration. API credentials must be stored securely in server-side secrets or environment variables and must never be committed to this repository.
+The application was developed using Lovable. Confirm the exact frameworks, libraries, and services from the source code before completing this section.
 
-## Setup and Installation
+- **Application development:** Lovable
+- **Frontend framework:** [Confirm from package.json]
+- **Programming language:** [Confirm from source files]
+- **UI and styling:** [Confirm from project dependencies]
+- **AI provider:** [Enter actual provider]
+- **AI model:** [Enter exact configured model name]
+- **Backend/API integration:** [Enter the actual server-side integration]
+- **Source-code hosting:** GitHub
 
-1. Clone this repository.
-2. Install the dependencies using the package manager and instructions specified by the project.
-3. Configure the required environment variables or server-side secrets.
-4. Start the development server using the project's configured command.
-5. Open the local URL shown in the terminal.
+Only list technologies and services that are actually present in the project.
 
-See the project configuration files for the exact dependency, setup, and run commands.
+## 4. Setup and Installation Instructions
 
-## Screenshots
+### Prerequisites
+- Node.js, if required by the project.
+- npm or the package manager specified by the project.
+- Git.
+- Access to the required AI service and its credentials.
 
-Add screenshots of the Dashboard, AI Marketing Studio, Customer Insights, and AI Store Advisor.
+### Clone the Repository
 
-## Current Limitations
+Replace the placeholder below with your actual GitHub repository URL.
 
-- Shopify is not connected in the current version.
-- Dashboard metrics are sample data and are not live store statistics.
-- AI responses depend on the information provided and the availability of the configured AI service.
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+cd YOUR_PROJECT_FOLDER
+```
 
-## Team Contributions
+### Install Dependencies
 
-Add each team member's name and their actual contribution here.
+For a project that uses npm:
 
-## Project Demo
+```bash
+npm install
+```
 
-Add the published application URL and demo video link here.
+If the repository uses another package manager, follow its lockfile and project instructions instead.
+
+### Configure Environment Variables
+
+Configure the AI service credentials using the secure environment or secret-management mechanism required by the project.
+
+Do not commit API keys, access tokens, or other secrets to GitHub. Do not expose private credentials in frontend code.
+
+### Run the Application
+
+For a project configured with the standard Vite development script, the command is typically:
+
+```bash
+npm run dev
+```
+
+Use the actual scripts in `package.json` if they differ. Open the local development URL displayed in the terminal.
+
+### Try the Demo
+
+1. Open the StorePilot AI dashboard.
+2. Explore the sample ecommerce metrics.
+3. Visit AI Marketing Studio and generate marketing content.
+4. Use sample reviews in Customer Insights to explore review analysis.
+5. Ask a starter question in AI Store Advisor.
+
+AI functionality requires the configured AI service to be available and properly configured.
+
+## 5. AI Methodology and Implementation
+
+StorePilot AI uses generative AI to assist with common ecommerce tasks.
+
+### Marketing Content Generation
+The AI Marketing Studio sends the user's marketing requirements to the configured AI service and displays the generated content. Users can review and copy the output.
+
+### Customer Review Analysis
+Customer Insights processes reviews provided by the user to identify recurring themes and sentiment. Extracted source quotes are validated against the supplied review text to reduce the risk of displaying unsupported quotations.
+
+### Contextual Store Advice
+The AI Store Advisor uses the information provided by the user and available demo context to generate practical, prioritized recommendations. When necessary information is missing, it can ask follow-up questions rather than assume unsupported facts.
+
+### Dashboard Data
+The dashboard displays sample ecommerce metrics for demonstration purposes. These figures are not live Shopify analytics and should not be interpreted as actual store performance.
+
+### Responsible AI Considerations
+- Clearly distinguish sample data from real business data.
+- Avoid presenting unsupported claims as verified facts.
+- Validate customer-review quotations against their source text.
+- Handle AI service errors and unavailable responses appropriately.
+- Keep API credentials out of public source code.
+
+## 6. AI Model Names and API Usage
+
+**Complete this section with the actual provider and model configured in the project.**
+
+- **AI provider:** [Enter provider name]
+- **Exact model identifier:** [Enter model name from configuration]
+- **API or SDK:** [Enter the actual API/SDK used]
+- **Credential handling:** [Describe the actual server-side secrets or environment-variable setup]
+
+### AI Use Cases
+
+| Feature | AI application |
+|---|---|
+| AI Marketing Studio | Marketing copy generation |
+| Customer Insights | Review analysis, sentiment, and recurring-theme extraction |
+| AI Store Advisor | Contextual question answering and prioritized recommendations |
+
+The AI workflows send appropriate user-provided inputs to the configured AI service and display its responses. The exact model and API details should be documented from the implementation rather than assumed.
+
+Never include actual API keys or secret values in this README.
+
+## 7. Product Screenshots
+
+Add screenshots of the following application pages to a folder named `screenshots` in the repository.
+
+Suggested structure:
+
+```text
+screenshots/
+├── dashboard.png
+├── marketing-studio.png
+├── customer-insights.png
+└── store-advisor.png
+```
+
+Insert the screenshots below after adding the actual image files:
+
+### Store Dashboard
+![StorePilot AI Dashboard](screenshots/dashboard.png)
+
+### AI Marketing Studio
+![AI Marketing Studio](screenshots/marketing-studio.png)
+
+### Customer Insights
+![Customer Insights](screenshots/customer-insights.png)
+
+### AI Store Advisor
+![AI Store Advisor](screenshots/store-advisor.png)
+
+These image paths will work only after the corresponding screenshot files have been added to the repository with matching filenames.
+
+## 8. Current Limitations and Future Improvements
+
+### Current Limitations
+- The application is not connected to a live Shopify store.
+- Dashboard figures are sample data.
+- AI responses depend on the configured model, the supplied context, and AI service availability.
+
+### Future Improvements
+- Secure Shopify integration with authorized store data.
+- Live revenue, order, and product analytics.
+- More personalized marketing recommendations.
+- Historical customer sentiment tracking.
+- Additional business insights based on real store performance.
+
+## 9. Project Links: https://drive.google.com/drive/folders/1_btCTUG6QsknYIXBs396SeA-Vf4157tn?usp=sharing
+
+## Conclusion
+
+StorePilot AI demonstrates how generative AI can support ecommerce marketing, customer feedback analysis, and business decision-making in a single application. It is a functional prototype designed to make AI assistance more accessible to small ecommerce businesses, with clearly identified sample data and transparent limitations.
+
 
